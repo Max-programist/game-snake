@@ -39,10 +39,10 @@ void border(std::vector<std::vector<char>>& arr) {
 int main() {
     std::vector<std::vector<char>> arr = create();
     border(arr);
-    print(arr);
-
-
     MyList example;
-
+    example.add_back(6, 6);
+    example.add_back(6, 7);
+    example.draw_snake(arr);
+    print(arr);
     return 0;
 }

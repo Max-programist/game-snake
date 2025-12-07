@@ -1,5 +1,6 @@
 #include "list.h"
 
+
 MyList::~MyList() {
   free_list();
   std::cout << "Gabella \n";
@@ -39,11 +40,11 @@ void MyList::free_list() {
     free(temp);
   }
 }
-void MyList::remove(int elem) {
+void MyList::remove(int x, int y) {
   struct list *temp = head;
   struct list *prev = NULL;
   for (; temp != NULL;) {
-    if ((*temp).x == elem) {
+    if ((*temp).x == x && (*temp).y == y) {
       if (prev != NULL) {
         prev->next = temp->next;
       } else {
@@ -60,8 +61,8 @@ void MyList::remove(int elem) {
   }
 }
 
-void MyList::add_back(int elem) {
-  struct list *node = create_elem(elem);
+void MyList::add_back(int x, int y) {
+  struct list *node = create_elem(x, y);
   if (head == NULL) {
     head = node;
   } else {
@@ -82,8 +83,8 @@ void MyList::show() { // 100 21 377 NUll
   std::cout << "NULL" << std::endl;
 }
 
-void MyList::add_front(int elem) {
-  struct list *node = create_elem(elem);
+void MyList::add_front(int x, int y) {
+  struct list *node = create_elem(x, y);
   if (head == NULL) {
     head = node;
   } else {
@@ -92,7 +93,7 @@ void MyList::add_front(int elem) {
   }
 }
 
-void MyList::sort() {// FIX ME
+void MyList::sort() {
   struct list *temp = head;
   for (; temp != NULL;) {
     for (struct list *needle = temp->next; needle != NULL;
@@ -116,4 +117,12 @@ void MyList::pop_back() {
   }
   prev->next = NULL;
   free(temp);
+}
+
+void MyList::draw_snake(std::vector<std::vector<char>> &arr) {
+  struct list *temp = head;
+  for(; temp != NULL; temp = temp->next) {
+    std::cout << temp->x << temp->y << "log draw_snake \n";
+    arr[temp->x][temp->y] = 'o';
+  }
 }
