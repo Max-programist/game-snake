@@ -36,13 +36,27 @@ void border(std::vector<std::vector<char>>& arr) {
     }
 }
 
+
+
+
 int main() {
     std::vector<std::vector<char>> arr = create();
     border(arr);
     MyList example;
     example.add_back(6, 6);
-    example.add_back(6, 7);
+    example.add_back(7, 6);
+    example.add_back(8, 6);
     example.draw_snake(arr);
     print(arr);
+
+
+    for(; ;) {
+        char c = getchar();
+        std::cout << "log getchar \n";
+        if(c == 'q') {
+            break;
+        }
+
+    }
     return 0;
 }
