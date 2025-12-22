@@ -106,7 +106,7 @@ void MyList::sort() {
   }
 }
 // 1 - find;;  2 - link;;yy 
-void MyList::pop_back() {
+int MyList::pop_back() {
   struct list* temp = head;
   struct list* prev = NULL;
   if(head != NULL) {
@@ -116,7 +116,9 @@ void MyList::pop_back() {
     }
   }
   prev->next = NULL;
+  int result = temp->x;
   free(temp);
+  return result;
 }
 
 void MyList::draw_snake(std::vector<std::vector<char>> &arr) {
@@ -125,4 +127,12 @@ void MyList::draw_snake(std::vector<std::vector<char>> &arr) {
     std::cout << temp->x << temp->y << "log draw_snake \n";
     arr[temp->x][temp->y] = 'o';
   }
+}
+
+
+int MyList::get_x_front() {
+  if(size() == 0) {
+    return -1;
+  }
+  return head->x;
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+
 struct list {
   int x;
   int y;
@@ -27,8 +28,9 @@ private:
   }
 
 public:
+  int get_x_front();
   void sort();
-  void pop_back();
+  int pop_back();
   void free_list();
   void remove(int x, int y);
   void add_back(int x, int y);

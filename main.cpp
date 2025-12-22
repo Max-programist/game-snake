@@ -55,8 +55,9 @@ int main() {
         std::cout << "log getchar \n";
         if(c == 'q') {
             break;
-        }
+       } 
 
     }
+
     return 0;
 }
