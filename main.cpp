@@ -56,19 +56,23 @@ int main() {
     example.draw_snake(arr);
     print(arr);
 
-
+// e - left; r - right; d - down;f - up
     for(; ;) {
         char c = getchar();
         std::cout << "log getchar " << c << "\n";
         if(c == 'q') {
+
             break;    
-    //    } else if(c == "w") {
-    
-    //    } 
-        } else {
             
-            example.add_front(9, 6);
+        } else if(c == '\n') {
+        }
+        else if(c == 'e') {
+        } else{
+            std::pair<int, int> head = example.get_data();
+            head.first += 1;
+            example.add_front(head.first, head.second);
             example.pop_back(); //FIIX MEEEEEEEEEEEEEEEEEEEEEEEEE
+            
             example.show();
        }
        clean_map(arr);

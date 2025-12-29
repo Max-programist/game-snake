@@ -135,4 +135,13 @@ int MyList::get_x_front() {
     return -1;
   }
   return head->x;
+
+} 
+
+std::pair<int, int> MyList::get_data() {
+  std::pair<int, int> result{};
+  result.first = head->x;
+  result.second = head->y;
+
+  return result;
 }

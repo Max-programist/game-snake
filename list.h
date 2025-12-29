@@ -39,6 +39,7 @@ public:
   int size();
   bool find(int x, int y);
   void draw_snake(std::vector<std::vector<char>> &arr);
+  std::pair<int, int> get_data();
   MyList();
   ~MyList();
 };
