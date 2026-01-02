@@ -28,6 +28,7 @@ private:
   }
 
 public:
+  bool check_game_over();
   int get_x_front();
   void sort();
   int pop_back();
@@ -44,5 +45,4 @@ public:
   ~MyList();
 };
 
-bool find_elem(struct list *node, int elem);
-int size_list(struct list *head);
+

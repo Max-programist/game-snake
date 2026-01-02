@@ -11,6 +11,13 @@ MyList::MyList() {
   std::cout << "Dosvidos \n";
 };
 
+MyList::MyList(const MyList &my_list) {
+  head = create_elem(my_list.head->x, my_list.head->y);
+
+  std::cout << "Dosvidos \n";
+};
+
+
 bool MyList::find(int x, int y) {
   bool flag = false;
   struct list *temp = head;
@@ -144,4 +151,16 @@ std::pair<int, int> MyList::get_data() {
   result.second = head->y;
 
   return result;
+}
+
+bool MyList::check_game_over() {
+  sort();
+  bool res = false;
+  struct list* temp = head;
+  for(; temp != NULL;) {
+    if(temp->x == temp->next->x && temp->y == temp->next->y ) {
+      res = true;
+    }
+  }
+  return res;
 }

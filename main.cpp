@@ -45,6 +45,11 @@ void clean_map(std::vector<std::vector<char>>& arr) {
 
 }
 
+bool check_game_over(const MyList &snake) {
+//snake + border; 
+//snake + snake
+    
+}
 
 int main() {
     std::vector<std::vector<char>> arr = create();
