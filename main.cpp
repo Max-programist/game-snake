@@ -53,6 +53,10 @@ int main() {
     example.add_front(6, 6);
     example.add_front(7, 6);
     example.add_front(8, 6);
+    example.add_front(9, 6);
+    example.add_front(10, 6);
+    example.add_front(11, 6);
+    example.add_front(12, 6);
     example.draw_snake(arr);
     print(arr);
 
@@ -65,20 +69,34 @@ int main() {
             break;    
             
         } else if(c == '\n') {
-        }
-        else if(c == 'e') {
-        } else{
+        } else if(c == 'r') {
+            std::pair<int, int> head = example.get_data();
+            head.second += 1;
+            example.add_front(head.first, head.second);
+            example.pop_back();
+        } else if(c == 'w') {
+            std::pair<int, int> head = example.get_data();
+            head.first -= 1;
+            example.add_front(head.first, head.second);
+            example.pop_back();   
+        } else if(c == 'e') {
+            std::pair<int, int> head = example.get_data();
+            head.second -= 1;
+            example.add_front(head.first, head.second);
+            example.pop_back();
+        
+        } else if(c == 'd'){
             std::pair<int, int> head = example.get_data();
             head.first += 1;
             example.add_front(head.first, head.second);
             example.pop_back(); //FIIX MEEEEEEEEEEEEEEEEEEEEEEEEE
             
-            example.show();
-       }
-       clean_map(arr);
-       border(arr);
-       example.draw_snake(arr);
-       print(arr);
+        }
+        example.show();
+        clean_map(arr);
+        border(arr);
+        example.draw_snake(arr);
+        print(arr);
     }
 
     return 0;
