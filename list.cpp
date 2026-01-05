@@ -11,12 +11,18 @@ MyList::MyList() {
   std::cout << "Dosvidos \n";
 };
 
-MyList::MyList(const MyList &my_list) {
+MyList::MyList(const MyList& my_list) {
   head = create_elem(my_list.head->x, my_list.head->y);
+  struct list* c_head = head;
 
-  std::cout << "Dosvidos \n";
+  struct list* temp = my_list.head;
+  for(;temp != NULL;) {
+    std::cout << "LOOOOOOOG \n";//FIIIIIIIIIIIIIIIIIIIIX BUG\\
+    temp = temp->next;
+    c_head->next = temp;
+  }
+  std::cout << "Bye-Bye11111 \n";
 };
-
 
 bool MyList::find(int x, int y) {
   bool flag = false;

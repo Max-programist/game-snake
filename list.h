@@ -42,6 +42,7 @@ public:
   void draw_snake(std::vector<std::vector<char>> &arr);
   std::pair<int, int> get_data();
   MyList();
+  MyList(const MyList& my_list);
   ~MyList();
 };
 

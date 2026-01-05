@@ -63,46 +63,49 @@ int main() {
     example.add_front(11, 6);
     example.add_front(12, 6);
     example.draw_snake(arr);
-    print(arr);
+    MyList primer(example);
+    example.show();
+    primer.show();
+    //print(arr);
 
 // e - left; r - right; d - down;f - up
-    for(; ;) {
-        char c = getchar();
-        std::cout << "log getchar " << c << "\n";
-        if(c == 'q') {
+    // for(; ;) {
+    //     char c = getchar();
+    //     std::cout << "log getchar " << c << "\n";
+    //     if(c == 'q') {
 
-            break;    
+    //         break;    
             
-        } else if(c == '\n') {
-        } else if(c == 'r') {
-            std::pair<int, int> head = example.get_data();
-            head.second += 1;
-            example.add_front(head.first, head.second);
-            example.pop_back();
-        } else if(c == 'w') {
-            std::pair<int, int> head = example.get_data();
-            head.first -= 1;
-            example.add_front(head.first, head.second);
-            example.pop_back();   
-        } else if(c == 'e') {
-            std::pair<int, int> head = example.get_data();
-            head.second -= 1;
-            example.add_front(head.first, head.second);
-            example.pop_back();
+    //     } else if(c == '\n') {
+    //     } else if(c == 'r') {
+    //         std::pair<int, int> head = example.get_data();
+    //         head.second += 1;
+    //         example.add_front(head.first, head.second);
+    //         example.pop_back();
+    //     } else if(c == 'w') {
+    //         std::pair<int, int> head = example.get_data();
+    //         head.first -= 1;
+    //         example.add_front(head.first, head.second);
+    //         example.pop_back();   
+    //     } else if(c == 'e') {
+    //         std::pair<int, int> head = example.get_data();
+    //         head.second -= 1;
+    //         example.add_front(head.first, head.second);
+    //         example.pop_back();
         
-        } else if(c == 'd'){
-            std::pair<int, int> head = example.get_data();
-            head.first += 1;
-            example.add_front(head.first, head.second);
-            example.pop_back(); //FIIX MEEEEEEEEEEEEEEEEEEEEEEEEE
+    //     } else if(c == 'd'){
+    //         std::pair<int, int> head = example.get_data();
+    //         head.first += 1;
+    //         example.add_front(head.first, head.second);
+    //         example.pop_back(); //FIIX MEEEEEEEEEEEEEEEEEEEEEEEEE
             
-        }
-        example.show();
-        clean_map(arr);
-        border(arr);
-        example.draw_snake(arr);
-        print(arr);
-    }
+    //     }
+        // example.show();
+    //     clean_map(arr);
+    //     border(arr);
+    //     example.draw_snake(arr);
+    //     print(arr);
+    // }
 
     return 0;
 }
