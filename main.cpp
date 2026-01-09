@@ -45,10 +45,11 @@ void clean_map(std::vector<std::vector<char>>& arr) {
 
 }
 
-bool check_game_over(const MyList &snake) {
+bool dead_snake(const MyList &snake) {
 //snake + border; 
 //snake + snake
-    
+    MyList temp(snake);
+    return temp.check_game_over();
 }
 
 int main() {
@@ -56,6 +57,7 @@ int main() {
     border(arr);
     MyList example;
     example.add_front(6, 6);
+    example.add_front(11, 6);
     example.add_front(7, 6);
     example.add_front(8, 6);
     example.add_front(9, 6);
@@ -66,6 +68,7 @@ int main() {
     MyList primer(example);
     example.show();
     primer.show();
+    std::cout << dead_snake(example) << "\n";// BUUUUUUUUUUUUUUUUUUUUUUG
     //print(arr);
 
 // e - left; r - right; d - down;f - up

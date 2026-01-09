@@ -12,6 +12,10 @@ MyList::MyList() {
 };
 
 MyList::MyList(const MyList& my_list) {//test me
+  if(my_list.head == NULL) {
+    head = NULL;
+    return;
+  }
   head = create_elem(my_list.head->x, my_list.head->y);
   struct list* c_head = head;
 
