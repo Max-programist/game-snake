@@ -143,7 +143,6 @@ int MyList::pop_back() {
 void MyList::draw_snake(std::vector<std::vector<char>> &arr) {
   struct list *temp = head;
   for(; temp != NULL; temp = temp->next) {
-    std::cout << temp->x << temp->y << "log draw_snake \n";
     arr[temp->x][temp->y] = 'o';
   }
 }
@@ -169,10 +168,12 @@ bool MyList::check_game_over() {
   sort();
   bool res = false;
   struct list* temp = head;
-  for(; temp != NULL;) {
+
+  for(; temp != NULL && temp->next != NULL;) {
     if(temp->x == temp->next->x && temp->y == temp->next->y ) {
       res = true;
     }
+     temp = temp->next;
   }
   return res;
 }

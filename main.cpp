@@ -47,7 +47,7 @@ void clean_map(std::vector<std::vector<char>>& arr) {
 
 bool dead_snake(const MyList &snake) {
 //snake + border; 
-//snake + snake
+
     MyList temp(snake);
     return temp.check_game_over();
 }
