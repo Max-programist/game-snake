@@ -44,11 +44,18 @@ void clean_map(std::vector<std::vector<char>>& arr) {
     }
 
 }
-
+// 1 1 1 1   0, i; i,0; 19,i; i,19;
+// 1     1   12,15
+// 1     1
+// 1 1 1 1
 bool dead_snake(const MyList &snake) {
-//snake + border; 
-
+//snake + border;
     MyList temp(snake);
+
+    std::pair<int, int> res = temp.get_data();
+    //if(res == 0,19... )
+
+
     return temp.check_game_over();
 }
 
