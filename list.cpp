@@ -96,7 +96,7 @@ void MyList::add_back(int x, int y) {
 void MyList::show() { // 100 21 377 NUll
   struct list *temp = head;
   for (; temp != NULL;) {
-    std::cout << temp->x << ";" << temp->y << "->";
+    std::cout << temp->x << ";" << temp->y << " -> ";
     temp = temp->next;
   }
   std::cout << "NULL" << std::endl;
@@ -140,7 +140,7 @@ int MyList::pop_back() {
   return result;
 }
 
-void MyList::draw_snake(std::vector<std::vector<char>> &arr) {
+void MyList::draw_snake_on_map(std::vector<std::vector<char>> &arr) {
   struct list *temp = head;
   for(; temp != NULL; temp = temp->next) {
     arr[temp->x][temp->y] = 'o';
