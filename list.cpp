@@ -140,10 +140,10 @@ int MyList::pop_back() {
   return result;
 }
 
-void MyList::draw_snake_on_map(std::vector<std::vector<char>> &arr) {
+void MyList::draw_snake_on_map(std::vector<std::vector<char>>& arr, char name) {
   struct list *temp = head;
   for(; temp != NULL; temp = temp->next) {
-    arr[temp->x][temp->y] = 'o';
+    arr[temp->x][temp->y] = name;
   }
 }
 

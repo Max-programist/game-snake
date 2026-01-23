@@ -60,7 +60,7 @@ bool dead_snake(const MyList &snake) {
     MyList temp(snake);
 
     std::pair<int, int> res = temp.get_data();
-    if((res.first == 0 || res.second == 0) || (res.first == 19 || res.second == 19)) {
+    if(res.first == 0 || res.second == 0 || res.first == 19 || res.second == 19) {
         return 1;
 
     }
@@ -69,62 +69,76 @@ bool dead_snake(const MyList &snake) {
     return temp.check_game_over();
 }
 
+
+// 1. print_apple_to_map
+// 2. add_front  
+// 3. make_rand_apple
+// 4. finish for the game
+
 int main() {
+    char o_on_map = 'o';
+    char a_on_map = 'a';
     std::vector<std::vector<char>> map = create();
     make_border(map);
     MyList snake;
+    snake.add_front(5, 6);
     snake.add_front(6, 6);
-    snake.add_front(11, 6);
     snake.add_front(7, 6);
     snake.add_front(8, 6);
     snake.add_front(9, 6);
     snake.add_front(10, 6);
     snake.add_front(11, 6);
     snake.add_front(12, 6);
-    snake.draw_snake_on_map(map);
+    snake.draw_snake_on_map(map, o_on_map);
+    MyList apples;
+    apples.add_front(6, 15);
+    apples.draw_snake_on_map(map, a_on_map);
     snake.show();
  
-    std::cout << dead_snake(snake) << "\n";// BUUUUUUUUUUUUUUUUUUUUUUG
-    //print(map);
+    print(map);
 
 // e - left; r - right; d - down;f - up
-    // for(; ;) {
-    //     char c = getchar();
-    //     std::cout << "log getchar " << c << "\n";
-    //     if(c == 'q') {
+    for(; ;) {
+        if(dead_snake(snake) == 1) {
+            break;
+        }
+        char c = getchar();
+        std::cout << "log getchar " << c << "\n";
+        if(c == 'q') {
 
-    //         break;    
+            break;    
             
-    //     } else if(c == '\n') {
-    //     } else if(c == 'r') {
-    //         std::pair<int, int> head = snake.get_data();
-    //         head.second += 1;
-    //         snake.add_front(head.first, head.second);
-    //         snake.pop_back();
-    //     } else if(c == 'w') {
-    //         std::pair<int, int> head = snake.get_data();
-    //         head.first -= 1;
-    //         snake.add_front(head.first, head.second);
-    //         snake.pop_back();   
-    //     } else if(c == 'e') {
-    //         std::pair<int, int> head = snake.get_data();
-    //         head.second -= 1;
-    //         snake.add_front(head.first, head.second);
-    //         snake.pop_back();
+        } else if(c == '\n') {
+        } else if(c == 'r') {
+            std::pair<int, int> head = snake.get_data();
+            head.second += 1;
+            snake.add_front(head.first, head.second);
+            snake.pop_back();
+        } else if(c == 'w') {
+            std::pair<int, int> head = snake.get_data();
+            head.first -= 1;
+            snake.add_front(head.first, head.second);
+            snake.pop_back();   
+        } else if(c == 'e') {
+            std::pair<int, int> head = snake.get_data();
+            head.second -= 1;
+            snake.add_front(head.first, head.second);
+            snake.pop_back();
         
-    //     } else if(c == 'd'){
-    //         std::pair<int, int> head = snake.get_data();
-    //         head.first += 1;
-    //         snake.add_front(head.first, head.second);
-    //         snake.pop_back(); //FIIX MEEEEEEEEEEEEEEEEEEEEEEEEE
+        } else if(c == 'd'){
+            std::pair<int, int> head = snake.get_data();
+            head.first += 1;
+            snake.add_front(head.first, head.second);
+            snake.pop_back(); //FIIX MEEEEEEEEEEEEEEEEEEEEEEEEE
             
-    //     }
-        // snake.show();
-    //     clean_map(map);
-    //     make_border(map);
-    //     snake.draw_snake_on_map(map);
-    //     print(map);
-    // }
+        }
+        snake.show();
+        clean_map(map);
+        make_border(map);
+        snake.draw_snake_on_map(map, o_on_map);
+        apples.draw_snake_on_map(map, a_on_map);
+        print(map);
+    }
 
     return 0;
 }

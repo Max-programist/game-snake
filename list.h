@@ -39,7 +39,7 @@ public:
   void show();
   int size();
   bool find(int x, int y);
-  void draw_snake_on_map(std::vector<std::vector<char>> &arr);
+  void draw_snake_on_map(std::vector<std::vector<char>> &arr, char name);
   std::pair<int, int> get_data();
   MyList();
   MyList(const MyList& my_list);
