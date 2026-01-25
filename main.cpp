@@ -70,8 +70,8 @@ bool dead_snake(const MyList &snake) {
 }
 
 
-// 1. print_apple_to_map
-// 2. add_front  
+// 1. print_apple_to_map+
+// 2. add_elem_to_snake  
 // 3. make_rand_apple
 // 4. finish for the game
 

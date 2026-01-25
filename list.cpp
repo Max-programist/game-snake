@@ -1,6 +1,5 @@
 #include "list.h"
 
-
 MyList::~MyList() {
   free_list();
   std::cout << "Gabella \n";
@@ -111,13 +110,15 @@ void MyList::add_front(int x, int y) {
     head = node;
   }
 }
-
+// 5;8 4;6  3;10 4;15
 void MyList::sort() {
   struct list *temp = head;
   for (; temp != NULL;) {
     for (struct list *needle = temp->next; needle != NULL;
          needle = needle->next) {
       if ((*temp).x < needle->x) {
+        swap(temp, needle);
+      } else if ((*temp).y < needle->y) {// HHHHHHHWwwww
         swap(temp, needle);
       }
     }
@@ -166,14 +167,18 @@ std::pair<int, int> MyList::get_data() {
 
 bool MyList::check_game_over() {
   sort();
+  show();
+  std::cout << "LOG for sort \n";
   bool res = false;
   struct list* temp = head;
 
   for(; temp != NULL && temp->next != NULL;) {
-    if(temp->x == temp->next->x && temp->y == temp->next->y ) {
+    if(temp->x == temp->next->x && temp->y == temp->next->y) {
       res = true;
+      break;
     }
      temp = temp->next;
   }
   return res;
-}
+}// 12;6 -> 12;5 -> 12;6 -> 11;6 -> 10;6 -> 9;6 -> 8;6 -> 7;6 -> NULL
+ // 12;6 -> 12;6  12;5   11;6   10;6   9;6     8;6    7;6    NULL         
