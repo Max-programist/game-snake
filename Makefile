@@ -1,5 +1,5 @@
 all:
-	g++ main.cpp list.cpp -o snake 
+	g++ main.cpp list.cpp -o snake -g
 	./snake
 	make clean
 

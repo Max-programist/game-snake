@@ -118,9 +118,9 @@ void MyList::sort() {
          needle = needle->next) {
       if ((*temp).x < needle->x) {
         swap(temp, needle);
-      } else if ((*temp).y < needle->y) {// HHHHHHHWwwww
+      } else if ((*temp).y < needle->y && (*temp).x == needle->x) {// HHHHHHHWwwww
         swap(temp, needle);
-      }
+      }// 0 0 0 0 0 0 0 0
     }
     temp = temp->next;
   }
@@ -181,4 +181,8 @@ bool MyList::check_game_over() {
   }
   return res;
 }// 12;6 -> 12;5 -> 12;6 -> 11;6 -> 10;6 -> 9;6 -> 8;6 -> 7;6 -> NULL
- // 12;6 -> 12;6  12;5   11;6   10;6   9;6     8;6    7;6    NULL         
+ // 12;6 -> 12;6  12;5   11;6   10;6   9;6     8;6    7;6    NULL    
+ 
+ 
+
+//make bool function where i`m cheking i was eatinig apple

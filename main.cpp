@@ -76,6 +76,10 @@ bool dead_snake(const MyList &snake) {
 // 4. finish for the game
 
 int main() {
+
+
+
+
     char o_on_map = 'o';
     char a_on_map = 'a';
     std::vector<std::vector<char>> map = create();
@@ -89,6 +93,7 @@ int main() {
     snake.add_front(10, 6);
     snake.add_front(11, 6);
     snake.add_front(12, 6);
+
     snake.draw_snake_on_map(map, o_on_map);
     MyList apples;
     apples.add_front(6, 15);
